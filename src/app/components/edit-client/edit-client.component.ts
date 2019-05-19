@@ -10,6 +10,7 @@ export class EditClientComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+   
   }
 
 }
