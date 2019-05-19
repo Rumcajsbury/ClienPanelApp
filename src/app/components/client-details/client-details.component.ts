@@ -30,9 +30,15 @@ export class ClientDetailsComponent implements OnInit {
       if(client != null){
         if(client.balance > 0){
           this.hasBalance = true;
-        }
+        }else{ this.hasBalance = false;}
         this.client = client;
       }
       });
+    }
+
+    updateBalance(): void{
+      this._clientService.updateClient(this.client);
+      this._flashMessage.show('Balance updated', {cssClass: 'alert-success', timeout: 4000});
+      this.showBalanceUpdateInput = false;
     }
 }
