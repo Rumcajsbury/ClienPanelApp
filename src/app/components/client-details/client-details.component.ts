@@ -20,17 +20,19 @@ export class ClientDetailsComponent implements OnInit {
   constructor(
     private _clientService: ClientService,
     private _route: ActivatedRoute,
+    private _router: Router,
     private _flashMessage: FlashMessagesService ) { }
 
   ngOnInit() {
-    this._route.params.subscribe(params => {
-      this.id = params.id;
-    })
+    this.id = this._route.snapshot.params['id'];
 
     this._clientService.getClientById(this.id).subscribe(client =>{
-      this.client = client
-      console.log(this.client);
-    })
-  }
-
+      if(client != null){
+        if(client.balance > 0){
+          this.hasBalance = true;
+        }
+        this.client = client;
+      }
+      });
+    }
 }
