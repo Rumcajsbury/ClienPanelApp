@@ -49,7 +49,7 @@ import { AuthService } from './services/auth.service';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     FormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
 
   ],
   providers: [ClientService, AuthService],
