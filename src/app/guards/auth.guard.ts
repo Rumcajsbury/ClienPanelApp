@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { Router } from '@angular/router';
-// import { AngularFireAuth } from '@angular/fire/auth';
 
 import { AuthService } from '../services/auth.service';
 
@@ -18,7 +17,6 @@ export class AuthGuard implements CanActivate {
 
     constructor(
         private _router: Router,
-        // private _afAuth: AngularFireAuth,
         private _authService: AuthService
     ) { }
 
@@ -31,15 +29,5 @@ export class AuthGuard implements CanActivate {
                 return true;
             }
         }));
-        // return this._afAuth.authState.pipe(map(auth => {
-        //     if (!auth) {
-        //         this._router.navigate(['/login']);
-        //         return false;
-        //     } else {
-        //         return true;
-        //     }
-        // }));
-
     }
-
 }

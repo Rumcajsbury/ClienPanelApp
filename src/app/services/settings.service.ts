@@ -5,10 +5,14 @@ import { Settings } from '../models/Settings';
   providedIn: 'root'
 })
 export class SettingsService {
-  settings: Settings = {
-    allowRegistration: true,
+  private settings: Settings = {
+    allowRegistration: false,
     disableBalanceOnAdd: false,
     disableBalanceOnEdit: false
   }
   constructor() { }
+
+  getSettings(): Settings{
+    return this.settings;
+  }
 }

@@ -22,12 +22,13 @@
           Balance
           <span 
             [ngClass]="{'text-danger': hasBalance, 'text-success' : !hasBalance}"
+            class="mr-2"
           >
           {{client.balance | currency}}
           </span>
-          <small>
-            <a (click)="showBalanceUpdateInput = !showBalanceUpdateInput">
-              <i class="fa fa-pencil"></i>
+          <small *ngIf="!disableBalanceOnEdit">
+            <a (click)="showBalanceUpdateInput = !showBalanceUpdateInput" class="btn btn-warning pull-right" style="cursor: pointer">
+              <i class="fa fa-pencil"></i> Edit Balance
             </a>
           </small>
         </h3>
